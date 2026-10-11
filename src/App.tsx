@@ -38,7 +38,8 @@ export default function App() {
       <FloatingHelp
         color="#16a34a"
         functions={[
-          { label: 'Scan a menu', description: 'Start the camera or upload a menu photo and analyze nutrition', action: () => setTab('scan') },
+          { label: 'Scan a menu', description: 'Start the camera or upload a menu photo and analyze nutrition', action: () => { setTab('scan'); window.dispatchEvent(new Event('help:start-camera')) } },
+          { label: 'Upload a menu photo', description: 'Use a photo from your device instead of the camera', action: () => { setTab('scan'); window.dispatchEvent(new Event('help:upload')) } },
           { label: 'Scan history', description: 'Review past scans with average health scores', action: () => setTab('history') },
           { label: 'Your profile & goals', description: 'Set your goal, allergens, calorie target and optional USDA key', action: () => setTab('profile') },
         ]}
